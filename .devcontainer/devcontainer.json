@@ -1,0 +1,16 @@
+{
+    "dockerFile": "./Dockerfile",
+    "containerUser": "android",
+    "remoteEnv": {
+        "CCACHE_DIR": "/opt/android/ccache",
+        "CCACHE_MAXSIZE": "100G",
+        "CCACHE_NOCOMPRESS": "true"
+    },
+    "mounts": [
+        "source=/storage/android,target=/opt/android,type=bind,consistency=cached"
+    ],
+    "runArgs": [
+        "--privileged" // required to mount loop devices
+    ],
+    "workspaceFolder": "/opt/android"
+}
